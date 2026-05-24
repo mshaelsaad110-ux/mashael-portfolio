@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مشاعل سعد القحطاني | Portfolio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f7f8fa;color:#1a1a2e;}
+html{scroll-behavior:smooth;}
+
+/* LANG BAR */
+.lang-bar{background:#fff;border-bottom:1px solid #e2e6ea;padding:10px 24px;display:flex;justify-content:flex-end;position:sticky;top:0;z-index:200;}
+.lang-btn{background:#EEEDFE;border:1px solid #AFA9EC;color:#3C3489;padding:5px 18px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:600;transition:all 0.2s;}
+.lang-btn:hover{background:#534AB7;color:#fff;}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid #e2e6ea;display:flex;justify-content:center;align-items:center;gap:12px;padding:12px 24px;position:sticky;top:41px;z-index:100;flex-wrap:wrap;}
+nav a{color:#5F5E5A;text-decoration:none;font-size:14px;font-weight:500;cursor:pointer;padding:6px 14px;border-radius:20px;transition:all 0.2s;}
+nav a:hover{background:#EEEDFE;color:#534AB7;}
+.nav-logo{height:36px;width:auto;object-fit:contain;}
+
+/* HERO */
+.hero{background:#fff;padding:72px 24px 56px;text-align:center;border-bottom:1px solid #e2e6ea;}
+.avatar{width:90px;height:90px;border-radius:50%;background:#EEEDFE;border:3px solid #AFA9EC;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#3C3489;margin:0 auto 16px;}
+.hero h1{font-size:30px;font-weight:700;color:#1a1a2e;margin-bottom:8px;}
+.hero .subtitle{font-size:15px;color:#5F5E5A;margin-bottom:16px;}
+.hero .subtitle span{color:#534AB7;font-weight:600;}
+.badge-wrap{display:flex;justify-content:center;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.badge{background:#EEEDFE;color:#3C3489;border:1px solid #AFA9EC;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:600;}
+.badge.teal{background:#E1F5EE;color:#085041;border-color:#5DCAA5;}
+.cta-wrap{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-p{padding:10px 26px;border-radius:8px;background:#534AB7;color:#fff;border:none;font-size:14px;font-weight:600;cursor:pointer;transition:background 0.2s;}
+.btn-p:hover{background:#3C3489;}
+.btn-o{padding:10px 26px;border-radius:8px;background:#fff;color:#534AB7;border:1.5px solid #534AB7;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.btn-o:hover{background:#EEEDFE;}
+
+/* SECTIONS */
+section{padding:60px 24px;max-width:900px;margin:0 auto;}
+.sec-header{margin-bottom:32px;}
+.divider{width:44px;height:3px;background:#534AB7;border-radius:2px;margin-bottom:8px;}
+.sec-title{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px;}
+.sec-sub{font-size:14px;color:#888780;}
+
+/* ABOUT */
+.about-card{background:#fff;border:1px solid #e2e6ea;border-radius:16px;padding:32px;}
+.about-card p{font-size:15px;line-height:1.9;color:#444441;margin-bottom:24px;}
+.stats{display:flex;gap:28px;flex-wrap:wrap;}
+.stat h2{font-size:22px;font-weight:700;color:#534AB7;}
+.stat p{font-size:12px;color:#888780;margin-top:2px;}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+.skill-card{background:#fff;border:1px solid #e2e6ea;border-radius:12px;padding:20px 14px;text-align:center;transition:border-color 0.2s,transform 0.2s;}
+.skill-card:hover{border-color:#534AB7;transform:translateY(-2px);}
+.skill-icon{width:40px;height:40px;border-radius:10px;background:#EEEDFE;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:18px;}
+.skill-card h3{font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:3px;}
+.skill-card p{font-size:11px;color:#888780;}
+
+/* PROJECTS GRID */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.proj-card{background:#fff;border:1px solid #e2e6ea;border-radius:14px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;}
+.proj-card:hover{border-color:#534AB7;transform:translateY(-3px);}
+.proj-thumb{width:100%;height:180px;object-fit:cover;display:block;}
+.proj-thumb-icon{height:140px;display:flex;align-items:center;justify-content:center;font-size:48px;background:#EEEDFE;}
+.proj-thumb-teal{background:#E1F5EE;}
+.proj-body{padding:16px;}
+.proj-body h3{font-size:15px;font-weight:600;color:#1a1a2e;margin-bottom:6px;}
+.proj-body p{font-size:13px;color:#888780;line-height:1.6;margin-bottom:10px;}
+.tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;background:#EEEDFE;color:#3C3489;border:1px solid #AFA9EC;margin-left:4px;margin-bottom:4px;}
+.tag.teal{background:#E1F5EE;color:#085041;border-color:#5DCAA5;}
+.tag.gray{background:#F1EFE8;color:#5F5E5A;border-color:#D3D1C7;}
+.proj-link{display:inline-block;margin-top:8px;padding:7px 16px;border-radius:8px;background:#534AB7;color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:background 0.2s;}
+.proj-link:hover{background:#3C3489;}
+.proj-link.outline{background:#fff;color:#534AB7;border:1.5px solid #534AB7;}
+.proj-link.outline:hover{background:#EEEDFE;}
+
+/* GALLERY — 3 images per row */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;}
+.gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px;border:1px solid #e2e6ea;}
+
+/* VIDEO */
+.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
+.video-card{background:#fff;border:1px solid #e2e6ea;border-radius:14px;overflow:hidden;}
+.video-card video{width:100%;display:block;max-height:220px;background:#000;}
+.video-card .proj-body{padding:14px;}
+
+/* KALDI special */
+.kaldi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px;}
+.kaldi-grid img{width:100%;height:150px;object-fit:cover;border-radius:10px;border:1px solid #e2e6ea;}
+
+/* CONTACT */
+.contact-card{background:#fff;border:1px solid #e2e6ea;border-radius:16px;padding:36px;text-align:center;}
+.contact-card p{color:#888780;font-size:15px;margin-bottom:24px;line-height:1.7;}
+.contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+.c-link{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:8px;transition:all 0.2s;}
+.c-email{background:#EEEDFE;color:#3C3489;border:1.5px solid #AFA9EC;}
+.c-email:hover{background:#534AB7;color:#fff;}
+
+/* FOOTER */
+footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18px;font-size:13px;color:#B4B2A9;}
+
+/* SECTION BG ALT */
+.bg-alt{background:#f0f0f8;}
+</style>
+</head>
+<body>
+
+<!-- LANG -->
+<div class="lang-bar">
+  <button class="lang-btn" id="langBtn" onclick="toggleLang()">English</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <img src="https://drive.google.com/thumbnail?id=1hE4EsgGwpRQbJfdEzivzULZwdE04LHxB&sz=w200" alt="Logo" class="nav-logo" onerror="this.style.display='none'">
+  <a onclick="goto('about')" data-ar="عني" data-en="About">عني</a>
+  <a onclick="goto('skills')" data-ar="مهاراتي" data-en="Skills">مهاراتي</a>
+  <a onclick="goto('projects')" data-ar="أعمالي" data-en="Work">أعمالي</a>
+  <a onclick="goto('magazines')" data-ar="مجلاتي" data-en="Magazines">مجلاتي</a>
+  <a onclick="goto('videos')" data-ar="فيديوهاتي" data-en="Videos">فيديوهاتي</a>
+  <a onclick="goto('contact')" data-ar="للتواصل" data-en="Contact">للتواصل</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="avatar" id="av">م</div>
+  <h1 id="heroName">مشاعل سعد القحطاني</h1>
+  <p class="subtitle">
+    <span data-ar="مصممة مواقع ووسائط متعددة" data-en="Web Designer & Multimedia">مصممة مواقع ووسائط متعددة</span>
+  </p>
+  <div class="badge-wrap">
+    <span class="badge">HTML & CSS</span>
+    <span class="badge teal" data-ar="تصميم واجهات" data-en="UI Design">تصميم واجهات</span>
+    <span class="badge" data-ar="هوية بصرية" data-en="Visual Identity">هوية بصرية</span>
+    <span class="badge teal" data-ar="إنتاج وسائط" data-en="Media Production">إنتاج وسائط</span>
+  </div>
+  <div class="cta-wrap">
+    <button class="btn-p" onclick="goto('projects')" data-ar="لمشاهدة الأعمال" data-en="View My Work">لمشاهدة الأعمال</button>
+    <button class="btn-o" onclick="goto('contact')" data-ar="للتواصل" data-en="Contact Me">للتواصل</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-header">
+    <div class="divider"></div>
+    <h2 class="sec-title" data-ar="عني" data-en="About Me">عني</h2>
+    <p class="sec-sub" data-ar="من أنا وما الذي أقدمه" data-en="Who I am and what I offer">من أنا وما الذي أقدمه</p>
+  </div>
+  <div class="about-card">
+    <p id="aboutTxt">خريجة تخصص وسائط متعددة وتقنية الويب — مصممة جرافيك شغوفة بتصميم واجهات المواقع، والهويات البصرية، والبروشورات، والمجلات، والمحتوى المرئي. أؤمن أن كل تصميم يحكي قصة.</p>
+    <div class="stats">
+      <div class="stat"><h2>+5</h2><p data-ar="مشاريع منجزة" data-en="Projects Done">مشاريع منجزة</p></div>
+      <div class="stat"><h2>200+</h2><p data-ar="مصطلح طبي" data-en="Medical Terms">مصطلح طبي</p></div>
+      <div class="stat"><h2>50+</h2><p data-ar="بروشور مصمم" data-en="Brochures">بروشور مصمم</p></div>
+      <div class="stat"><h2>3</h2><p data-ar="مجلات احترافية" data-en="Magazines">مجلات احترافية</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="bg-alt" style="max-width:100%;padding:60px 24px;">
+<div style="max-width:900px;margin:0 auto;">
+  <div class="sec-header">
+    <div class="divider"></div>
+    <h2 class="sec-title" data-ar="مهاراتي" data-en="My Skills">مهاراتي</h2>
+    <p class="sec-sub" data-ar="ما أجيده وأقدمه" data-en="What I do best">ما أجيده وأقدمه</p>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-icon">🎨</div><h3 data-ar="تصميم واجهات" data-en="UI Design">تصميم واجهات</h3><p data-ar="ألوان وأشكال وتخطيط" data-en="Colors, shapes & layout">ألوان وأشكال وتخطيط</p></div>
+    <div class="skill-card"><div class="skill-icon">💻</div><h3>HTML & CSS</h3><p data-ar="بناء مواقع كاملة" data-en="Building websites">بناء مواقع كاملة</p></div>
+    <div class="skill-card"><div class="skill-icon">📖</div><h3 data-ar="تصميم المجلات" data-en="Magazine Design">تصميم المجلات</h3><p>Canva & InDesign</p></div>
+    <div class="skill-card"><div class="skill-icon">☕</div><h3 data-ar="هوية بصرية" data-en="Visual Identity">هوية بصرية</h3><p data-ar="تصميم متكامل" data-en="Full branding">تصميم متكامل</p></div>
+    <div class="skill-card"><div class="skill-icon">🎬</div><h3 data-ar="إنتاج فيديو" data-en="Video Production">إنتاج فيديو</h3><p data-ar="محتوى تعليمي" data-en="Educational content">محتوى تعليمي</p></div>
+    <div class="skill-card"><div class="skill-icon">🌐</div><h3 data-ar="نشر المواقع" data-en="Web Hosting">نشر المواقع</h3><p>Netlify</p></div>
+  </div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-header">
+    <div class="divider"></div>
+    <h2 class="sec-title" data-ar="أعمالي" data-en="My Work">أعمالي</h2>
+    <p class="sec-sub" data-ar="مشاريع صممتها" data-en="Projects I designed">مشاريع صممتها</p>
+  </div>
+  <div class="projects-grid">
+
+    <!-- KALDI -->
+    <div class="proj-card" style="grid-column:1/-1;">
+      <div class="proj-body">
+        <h3>☕ Kaldi — <span data-ar="مشروع التخرج" data-en="Graduation Project">مشروع التخرج</span></h3>
+        <p data-ar="هوية بصرية كاملة لعلامة تجارية للقهوة — تشمل البوكس، أكياس البن، الستيكرات، والأكواب" data-en="Complete visual identity for a coffee brand — includes box, coffee bags, stickers, and cups">هوية بصرية كاملة لعلامة تجارية للقهوة — تشمل البوكس، أكياس البن، الستيكرات، والأكواب</p>
+        <span class="tag" data-ar="هوية بصرية" data-en="Visual Identity">هوية بصرية</span>
+        <span class="tag teal" data-ar="مشروع تخرج" data-en="Graduation">مشروع تخرج</span>
+        <div class="kaldi-grid">
+          <img src="https://drive.google.com/thumbnail?id=1epInIQR3oc2nqfywdnoQi5eYPH4OqPyW&sz=w800" alt="Kaldi 1">
+          <img src="https://drive.google.com/thumbnail?id=1mCUdgvsXQwp7zFz9gEnO10Obu_JhASiI&sz=w800" alt="Kaldi 2">
+          <img src="https://drive.google.com/thumbnail?id=10qXBBO8IlWw0V4aORvVxUTI34g8kuYjF&sz=w800" alt="Kaldi 3">
+          <img src="https://drive.google.com/thumbnail?id=16-mrO1Crix8-yzMxEc3466E_f6yVJ4MJ&sz=w800" alt="Kaldi 4">
+          <img src="https://drive.google.com/thumbnail?id=10Yb2TjT3DNWHo-6kMLG8bclnJ9UperzL&sz=w800" alt="Kaldi 5">
+        </div>
+      </div>
+    </div>
+
+    <!-- HOSPITAL WEBSITE -->
+    <div class="proj-card">
+      <div class="proj-thumb-icon">🏥</div>
+      <div class="proj-body">
+        <h3 data-ar="موقع مدينة الملك فهد الطبية" data-en="KFMC Training Website">موقع مدينة الملك فهد الطبية</h3>
+        <p data-ar="موقع تدريبي احترافي — تصميم كامل بالصفحات والألوان والشعار" data-en="Professional hospital training website with full design">موقع تدريبي احترافي — تصميم كامل بالصفحات والألوان والشعار</p>
+        <span class="tag">HTML & CSS</span>
+        <span class="tag teal">Netlify</span><br>
+        <a class="proj-link" href="https://kfmc-training.netlify.app" target="_blank" data-ar="زيارة الموقع ←" data-en="Visit Website ←">زيارة الموقع ←</a>
+      </div>
+    </div>
+
+    <!-- MEDICAL TERMS -->
+    <div class="proj-card">
+      <img src="https://drive.google.com/thumbnail?id=1v0up3w4OG4_9Ttse7_teaS0RxklHe2Xu&sz=w800" alt="Medical Terms" class="proj-thumb">
+      <div class="proj-body">
+        <h3 data-ar="المصطلحات الطبية" data-en="Medical Terms">المصطلحات الطبية</h3>
+        <p data-ar="تصميم 200+ مصطلح طبي — لكل مصطلح شريحة باسم ومعنى وصور تعبيرية" data-en="200+ medical terms designed as visual slides with names, meanings, and expressive images">تصميم 200+ مصطلح طبي — لكل مصطلح شريحة باسم ومعنى وصور تعبيرية</p>
+        <span class="tag teal">Canva</span>
+        <span class="tag">200+ <span data-ar="مصطلح" data-en="Terms">مصطلح</span></span>
+      </div>
+    </div>
+
+    <!-- BROCHURES -->
+    <div class="proj-card" style="grid-column:1/-1;">
+      <div class="proj-body">
+        <h3 data-ar="البروشورات التدريبية" data-en="Training Brochures">البروشورات التدريبية</h3>
+        <p data-ar="50+ بروشور مصمم عن دورات تدريبية — كل تصميم مختلف وفريد" data-en="50+ brochures designed for training courses — each design is unique">50+ بروشور مصمم عن دورات تدريبية — كل تصميم مختلف وفريد</p>
+        <span class="tag teal">Canva</span>
+        <span class="tag">50+ <span data-ar="تصميم" data-en="Designs">تصميم</span></span>
+        <div class="gallery">
+          <img src="https://drive.google.com/thumbnail?id=1SY8S1h1goZvq0j20OkUJPRYh3qGLoCzg&sz=w800" alt="Brochure 1">
+          <img src="https://drive.google.com/thumbnail?id=1J-eheFX5-zWZawJHeNKtl0yNRwJ0J858&sz=w800" alt="Brochure 2">
+          <img src="https://drive.google.com/thumbnail?id=1ooy8pTxmoxaP1Ps9U43eMIVIVj2JO3_k&sz=w800" alt="Brochure 3">
+          <img src="https://drive.google.com/thumbnail?id=1L1lpWXZgOvQURsDtN2yb-qY_T3DxFuv0&sz=w800" alt="Brochure 4">
+          <img src="https://drive.google.com/thumbnail?id=1_ytHOBOw4zzAhcH5G2F99Hx7V1spM1ty&sz=w800" alt="Brochure 5">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAGAZINES -->
+<section id="magazines" class="bg-alt" style="max-width:100%;padding:60px 24px;">
+<div style="max-width:900px;margin:0 auto;">
+  <div class="sec-header">
+    <div class="divider"></div>
+    <h2 class="sec-title" data-ar="مجلاتي" data-en="My Magazines">مجلاتي</h2>
+    <p class="sec-sub" data-ar="مجلات احترافية صممتها" data-en="Professional magazines I designed">مجلات احترافية صممتها</p>
+  </div>
+  <div class="projects-grid">
+
+    <!-- JEWELRY MAG -->
+    <div class="proj-card">
+      <img src="https://drive.google.com/thumbnail?id=1ZPN9hDpubnXnCXkKbfMCOlzYqV64R5W2&sz=w800" alt="Jewels Art" class="proj-thumb">
+      <div class="proj-body">
+        <h3 data-ar="مجلة Jewels Art" data-en="Jewels Art Magazine">مجلة Jewels Art</h3>
+        <p data-ar="مجلة مجوهرات فاخرة — تصميم إبداعي بالأبيض والأسود مع محتوى عن أنواع المجوهرات والأحجار الكريمة" data-en="Luxury jewelry magazine with elegant black & white design">مجلة مجوهرات فاخرة — تصميم إبداعي بالأبيض والأسود</p>
+        <span class="tag">InDesign</span><br>
+        <a class="proj-link" href="https://rubotic.my.canva.site/pdf/page-2" target="_blank" data-ar="اقرأ المجلة ←" data-en="Read Magazine ←">اقرأ المجلة ←</a>
+        <div class="gallery" style="margin-top:10px;">
+          <img src="https://drive.google.com/thumbnail?id=1ZPN9hDpubnXnCXkKbfMCOlzYqV64R5W2&sz=w800" alt="p1">
+          <img src="https://drive.google.com/thumbnail?id=1nBS7VvWUEKVS2P5sWjW7ZXavCls7pytA&sz=w800" alt="p2">
+          <img src="https://drive.google.com/thumbnail?id=1a0B8YNtY_cNe9sogR_y6e4SPXd7BRwOA&sz=w800" alt="p3">
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGIC MAG -->
+    <div class="proj-card">
+      <img src="https://drive.google.com/thumbnail?id=1MplXzNdRtVVn57E1VgQ8c00WXi04jmeW&sz=w800" alt="Strategic" class="proj-thumb">
+      <div class="proj-body">
+        <h3 data-ar="مجلة التخطيط الاستراتيجي" data-en="Strategic Planning Magazine">مجلة التخطيط الاستراتيجي</h3>
+        <p data-ar="مجلة مؤسسية متخصصة في التخطيط الاستراتيجي" data-en="Institutional magazine specialized in strategic planning">مجلة مؤسسية متخصصة في التخطيط الاستراتيجي</p>
+        <span class="tag teal">Canva</span><br>
+        <a class="proj-link" href="https://rubotic.my.canva.site/dahj5cfmx7s" target="_blank" data-ar="اقرأ المجلة ←" data-en="Read Magazine ←">اقرأ المجلة ←</a>
+        <div class="gallery" style="margin-top:10px;">
+          <img src="https://drive.google.com/thumbnail?id=1MplXzNdRtVVn57E1VgQ8c00WXi04jmeW&sz=w800" alt="p1">
+          <img src="https://drive.google.com/thumbnail?id=1CBg_ty39LnREoS2j_A3TLHywTcJuW6I-&sz=w800" alt="p2">
+          <img src="https://drive.google.com/thumbnail?id=1PxhE_g-vj8ZBpUbKIB47qKnowA-m1Zff&sz=w800" alt="p3">
+        </div>
+      </div>
+    </div>
+
+    <!-- HEALTH MAG -->
+    <div class="proj-card">
+      <img src="https://drive.google.com/thumbnail?id=184xcwK975bHf6iCgyRjgMUm6L-Wppj2H&sz=w800" alt="Health" class="proj-thumb">
+      <div class="proj-body">
+        <h3 data-ar="مجلة المرافق الصحية" data-en="Health Facilities Magazine">مجلة المرافق الصحية</h3>
+        <p data-ar="مجلة صحية متخصصة في المرافق والخدمات الصحية" data-en="Health magazine specialized in health facilities and services">مجلة صحية متخصصة في المرافق والخدمات الصحية</p>
+        <span class="tag teal">Canva</span><br>
+        <a class="proj-link" href="https://canva.link/tyzmy3rla1g09m0" target="_blank" data-ar="اقرأ المجلة ←" data-en="Read Magazine ←">اقرأ المجلة ←</a>
+        <div class="gallery" style="margin-top:10px;">
+          <img src="https://drive.google.com/thumbnail?id=184xcwK975bHf6iCgyRjgMUm6L-Wppj2H&sz=w800" alt="p1">
+          <img src="https://drive.google.com/thumbnail?id=1zicnAFwYIWkBpb6QWLLhJFsImJXBANYw&sz=w800" alt="p2">
+          <img src="https://drive.google.com/thumbnail?id=1zoW1TrRDizParUSyBNiHNK9AH_JiJGYn&sz=w800" alt="p3">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="sec-header">
+    <div class="divider"></div>
+    <h2 class="sec-title" data-ar="فيديوهاتي" data-en="My Videos">فيديوهاتي</h2>
+    <p class="sec-sub" data-ar="محتوى تعليمي طبي صممته" data-en="Educational medical content I designed">محتوى تعليمي طبي صممته</p>
+  </div>
+  <div class="video-grid">
+    <div class="video-card">
+      <video controls>
+        <source src="videos/الاكتئاب.mp4" type="video/mp4">
+      </video>
+      <div class="proj-body">
+        <h3 data-ar="الاكتئاب" data-en="Depression">الاكتئاب</h3>
+        <p data-ar="فيديو تعليمي طبي عن الاكتئاب" data-en="Educational medical video about depression">فيديو تعليمي طبي عن الاكتئاب</p>
+        <span class="tag teal" data-ar="محتوى طبي" data-en="Medical Content">محتوى طبي</span>
+      </div>
+    </div>
+    <div class="video-card">
+      <video controls>
+        <source src="videos/التوحد.mp4" type="video/mp4">
+      </video>
+      <div class="proj-body">
+        <h3 data-ar="التوحد" data-en="Autism">التوحد</h3>
+        <p data-ar="فيديو تعليمي طبي عن التوحد" data-en="Educational medical video about autism">فيديو تعليمي طبي عن التوحد</p>
+        <span class="tag teal" data-ar="محتوى طبي" data-en="Medical Content">محتوى طبي</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="bg-alt" style="max-width:100%;padding:60px 24px;">
+<div style="max-width:900px;margin:0 auto;">
+  <div class="sec-header">
+    <div class="divider"></div>
+    <h2 class="sec-title" data-ar="للتواصل" data-en="Contact Me">للتواصل</h2>
+    <p class="sec-sub" data-ar="يسعدني العمل على مشروعك" data-en="I'd love to work on your project">يسعدني العمل على مشروعك</p>
+  </div>
+  <div class="contact-card">
+    <p id="contactTxt">هل تبحث عن مصممة مواقع ووسائط متعددة محترفة؟ تواصل معي وسنبدأ مشروعك بأفضل شكل ممكن</p>
+    <div class="contact-links">
+      <a class="c-link c-email" href="mailto:mshaelsaad110@gmail.com">✉️ mshaelsaad110@gmail.com</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <span id="footerTxt">© 2025 مشاعل سعد القحطاني — جميع الحقوق محفوظة</span>
+</footer>
+
+<script>
+let ar = true;
+function toggleLang(){
+  ar = !ar;
+  document.body.style.direction = ar ? 'rtl' : 'ltr';
+  document.getElementById('langBtn').textContent = ar ? 'English' : 'عربي';
+  document.getElementById('av').textContent = ar ? 'م' : 'M';
+  document.getElementById('heroName').textContent = ar ? 'مشاعل سعد القحطاني' : 'Mashael Saad Al-Qahtani';
+  document.getElementById('aboutTxt').textContent = ar
+    ? 'خريجة تخصص وسائط متعددة وتقنية الويب — مصممة جرافيك شغوفة بتصميم واجهات المواقع، والهويات البصرية، والبروشورات، والمجلات، والمحتوى المرئي. أؤمن أن كل تصميم يحكي قصة.'
+    : 'Multimedia & Web Technology graduate — Graphic Designer passionate about UI design, brand identity, brochures, magazines, and visual content. I believe every design tells a story.';
+  document.getElementById('contactTxt').textContent = ar
+    ? 'هل تبحث عن مصممة مواقع ووسائط متعددة محترفة؟ تواصل معي وسنبدأ مشروعك بأفضل شكل ممكن'
+    : "Looking for a professional web designer & multimedia specialist? Get in touch and let's start your project.";
+  document.getElementById('footerTxt').textContent = ar
+    ? '© 2025 مشاعل سعد القحطاني — جميع الحقوق محفوظة'
+    : '© 2025 Mishaael Saad Al-Qahtani — All Rights Reserved';
+  document.querySelectorAll('[data-ar]').forEach(el => {
+    el.textContent = ar ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+  });
+}
+function goto(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
