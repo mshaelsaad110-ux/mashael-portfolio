@@ -8,19 +8,13 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Segoe UI',Arial,sans-serif;background:#f7f8fa;color:#1a1a2e;}
 html{scroll-behavior:smooth;}
-
-/* LANG BAR */
 .lang-bar{background:#fff;border-bottom:1px solid #e2e6ea;padding:10px 24px;display:flex;justify-content:flex-end;position:sticky;top:0;z-index:200;}
 .lang-btn{background:#EEEDFE;border:1px solid #AFA9EC;color:#3C3489;padding:5px 18px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:600;transition:all 0.2s;}
 .lang-btn:hover{background:#534AB7;color:#fff;}
-
-/* NAV */
 nav{background:#fff;border-bottom:1px solid #e2e6ea;display:flex;justify-content:center;align-items:center;gap:12px;padding:12px 24px;position:sticky;top:41px;z-index:100;flex-wrap:wrap;}
 nav a{color:#5F5E5A;text-decoration:none;font-size:14px;font-weight:500;cursor:pointer;padding:6px 14px;border-radius:20px;transition:all 0.2s;}
 nav a:hover{background:#EEEDFE;color:#534AB7;}
 .nav-logo{height:36px;width:auto;object-fit:contain;}
-
-/* HERO */
 .hero{background:#fff;padding:72px 24px 56px;text-align:center;border-bottom:1px solid #e2e6ea;}
 .avatar{width:90px;height:90px;border-radius:50%;background:#EEEDFE;border:3px solid #AFA9EC;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#3C3489;margin:0 auto 16px;}
 .hero h1{font-size:30px;font-weight:700;color:#1a1a2e;margin-bottom:8px;}
@@ -34,30 +28,22 @@ nav a:hover{background:#EEEDFE;color:#534AB7;}
 .btn-p:hover{background:#3C3489;}
 .btn-o{padding:10px 26px;border-radius:8px;background:#fff;color:#534AB7;border:1.5px solid #534AB7;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;}
 .btn-o:hover{background:#EEEDFE;}
-
-/* SECTIONS */
 section{padding:60px 24px;max-width:900px;margin:0 auto;}
 .sec-header{margin-bottom:32px;}
 .divider{width:44px;height:3px;background:#534AB7;border-radius:2px;margin-bottom:8px;}
 .sec-title{font-size:22px;font-weight:700;color:#1a1a2e;margin-bottom:4px;}
 .sec-sub{font-size:14px;color:#888780;}
-
-/* ABOUT */
 .about-card{background:#fff;border:1px solid #e2e6ea;border-radius:16px;padding:32px;}
 .about-card p{font-size:15px;line-height:1.9;color:#444441;margin-bottom:24px;}
 .stats{display:flex;gap:28px;flex-wrap:wrap;}
 .stat h2{font-size:22px;font-weight:700;color:#534AB7;}
 .stat p{font-size:12px;color:#888780;margin-top:2px;}
-
-/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
 .skill-card{background:#fff;border:1px solid #e2e6ea;border-radius:12px;padding:20px 14px;text-align:center;transition:border-color 0.2s,transform 0.2s;}
 .skill-card:hover{border-color:#534AB7;transform:translateY(-2px);}
 .skill-icon{width:40px;height:40px;border-radius:10px;background:#EEEDFE;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:18px;}
 .skill-card h3{font-size:13px;font-weight:600;color:#1a1a2e;margin-bottom:3px;}
 .skill-card p{font-size:11px;color:#888780;}
-
-/* PROJECTS GRID */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
 .proj-card{background:#fff;border:1px solid #e2e6ea;border-radius:14px;overflow:hidden;transition:border-color 0.2s,transform 0.2s;}
 .proj-card:hover{border-color:#534AB7;transform:translateY(-3px);}
@@ -74,46 +60,33 @@ section{padding:60px 24px;max-width:900px;margin:0 auto;}
 .proj-link:hover{background:#3C3489;}
 .proj-link.outline{background:#fff;color:#534AB7;border:1.5px solid #534AB7;}
 .proj-link.outline:hover{background:#EEEDFE;}
-
-/* GALLERY — 3 images per row */
+.proj-link.green{background:#1B5E4B;color:#fff;}
+.proj-link.green:hover{background:#0f3d30;}
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;}
 .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px;border:1px solid #e2e6ea;}
-
-/* VIDEO */
 .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
 .video-card{background:#fff;border:1px solid #e2e6ea;border-radius:14px;overflow:hidden;}
-.video-card video{width:100%;display:block;max-height:220px;background:#000;}
 .video-card .proj-body{padding:14px;}
-
-/* KALDI special */
 .kaldi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px;}
 .kaldi-grid img{width:100%;height:150px;object-fit:cover;border-radius:10px;border:1px solid #e2e6ea;}
-
-/* CONTACT */
+.kaldi-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
 .contact-card{background:#fff;border:1px solid #e2e6ea;border-radius:16px;padding:36px;text-align:center;}
 .contact-card p{color:#888780;font-size:15px;margin-bottom:24px;line-height:1.7;}
 .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
 .c-link{padding:10px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:8px;transition:all 0.2s;}
 .c-email{background:#EEEDFE;color:#3C3489;border:1.5px solid #AFA9EC;}
 .c-email:hover{background:#534AB7;color:#fff;}
-
-/* FOOTER */
 footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18px;font-size:13px;color:#B4B2A9;}
-
-/* SECTION BG ALT */
 .bg-alt{background:#f0f0f8;}
 </style>
 </head>
 <body>
 
-<!-- LANG -->
 <div class="lang-bar">
   <button class="lang-btn" id="langBtn" onclick="toggleLang()">English</button>
 </div>
 
-<!-- NAV -->
 <nav>
-
   <a onclick="goto('about')" data-ar="عني" data-en="About">عني</a>
   <a onclick="goto('skills')" data-ar="مهاراتي" data-en="Skills">مهاراتي</a>
   <a onclick="goto('projects')" data-ar="أعمالي" data-en="Work">أعمالي</a>
@@ -122,7 +95,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   <a onclick="goto('contact')" data-ar="للتواصل" data-en="Contact">للتواصل</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="avatar" id="av">م</div>
   <h1 id="heroName">مشاعل سعد القحطاني</h1>
@@ -141,7 +113,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="sec-header">
     <div class="divider"></div>
@@ -159,7 +130,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="bg-alt" style="max-width:100%;padding:60px 24px;">
 <div style="max-width:900px;margin:0 auto;">
   <div class="sec-header">
@@ -178,7 +148,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="sec-header">
     <div class="divider"></div>
@@ -187,19 +156,23 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   </div>
   <div class="projects-grid">
 
-    <!-- KALDI -->
+    <!-- KALDI — هوية بصرية + متجر -->
     <div class="proj-card" style="grid-column:1/-1;">
       <div class="proj-body">
-        <h3>☕ Kaldi — <span data-ar="مشروع التخرج" data-en="Graduation Project">مشروع التخرج</span></h3>
-        <p data-ar="هوية بصرية كاملة لعلامة تجارية للقهوة — تشمل البوكس، أكياس البن، الستيكرات، والأكواب" data-en="Complete visual identity for a coffee brand — includes box, coffee bags, stickers, and cups">هوية بصرية كاملة لعلامة تجارية للقهوة — تشمل البوكس، أكياس البن، الستيكرات، والأكواب</p>
+        <h3>☕ Kaldi — <span data-ar="مشروع التخرج | هوية بصرية كاملة + متجر إلكتروني" data-en="Graduation Project | Full Visual Identity + Online Store">مشروع التخرج | هوية بصرية كاملة + متجر إلكتروني</span></h3>
+        <p data-ar="هوية بصرية كاملة لعلامة تجارية للقهوة — تشمل البوكس، أكياس البن، الستيكرات، والأكواب. بالإضافة إلى متجر إلكتروني احترافي مع سلة تسوق وإتمام الطلب." data-en="Complete visual identity for a coffee brand including box, bags, stickers, and cups — plus a full e-commerce store with cart and checkout.">هوية بصرية كاملة لعلامة تجارية للقهوة — تشمل البوكس، أكياس البن، الستيكرات، والأكواب. بالإضافة إلى متجر إلكتروني احترافي مع سلة تسوق وإتمام الطلب.</p>
         <span class="tag" data-ar="هوية بصرية" data-en="Visual Identity">هوية بصرية</span>
         <span class="tag teal" data-ar="مشروع تخرج" data-en="Graduation">مشروع تخرج</span>
+        <span class="tag" data-ar="متجر إلكتروني" data-en="E-Commerce">متجر إلكتروني</span>
         <div class="kaldi-grid">
           <img src="https://drive.google.com/thumbnail?id=1epInIQR3oc2nqfywdnoQi5eYPH4OqPyW&sz=w800" alt="Kaldi 1">
           <img src="https://drive.google.com/thumbnail?id=1mCUdgvsXQwp7zFz9gEnO10Obu_JhASiI&sz=w800" alt="Kaldi 2">
           <img src="https://drive.google.com/thumbnail?id=10qXBBO8IlWw0V4aORvVxUTI34g8kuYjF&sz=w800" alt="Kaldi 3">
           <img src="https://drive.google.com/thumbnail?id=16-mrO1Crix8-yzMxEc3466E_f6yVJ4MJ&sz=w800" alt="Kaldi 4">
           <img src="https://drive.google.com/thumbnail?id=10Yb2TjT3DNWHo-6kMLG8bclnJ9UperzL&sz=w800" alt="Kaldi 5">
+        </div>
+        <div class="kaldi-links">
+          <a class="proj-link green" href="https://mshaelsaad110-ux.github.io/kaldi-store/kaldi-2.html" target="_blank" data-ar="🛒 زيارة المتجر ←" data-en="🛒 Visit Store ←">🛒 زيارة المتجر ←</a>
         </div>
       </div>
     </div>
@@ -260,7 +233,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   </div>
 </section>
 
-<!-- MAGAZINES -->
 <section id="magazines" class="bg-alt" style="max-width:100%;padding:60px 24px;">
 <div style="max-width:900px;margin:0 auto;">
   <div class="sec-header">
@@ -269,13 +241,11 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
     <p class="sec-sub" data-ar="مجلات احترافية صممتها" data-en="Professional magazines I designed">مجلات احترافية صممتها</p>
   </div>
   <div class="projects-grid">
-
-    <!-- JEWELRY MAG -->
     <div class="proj-card">
       <img src="https://drive.google.com/thumbnail?id=1ZPN9hDpubnXnCXkKbfMCOlzYqV64R5W2&sz=w800" alt="Jewels Art" class="proj-thumb">
       <div class="proj-body">
         <h3 data-ar="مجلة Jewels Art" data-en="Jewels Art Magazine">مجلة Jewels Art</h3>
-        <p data-ar="مجلة مجوهرات فاخرة — تصميم إبداعي بالأبيض والأسود مع محتوى عن أنواع المجوهرات والأحجار الكريمة" data-en="Luxury jewelry magazine with elegant black & white design">مجلة مجوهرات فاخرة — تصميم إبداعي بالأبيض والأسود</p>
+        <p data-ar="مجلة مجوهرات فاخرة — تصميم إبداعي بالأبيض والأسود" data-en="Luxury jewelry magazine with elegant black & white design">مجلة مجوهرات فاخرة — تصميم إبداعي بالأبيض والأسود</p>
         <span class="tag">InDesign</span><br>
         <a class="proj-link" href="https://rubotic.my.canva.site/pdf/page-2" target="_blank" data-ar="اقرأ المجلة ←" data-en="Read Magazine ←">اقرأ المجلة ←</a>
         <div class="gallery" style="margin-top:10px;">
@@ -285,8 +255,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
         </div>
       </div>
     </div>
-
-    <!-- STRATEGIC MAG -->
     <div class="proj-card">
       <img src="https://drive.google.com/thumbnail?id=1MplXzNdRtVVn57E1VgQ8c00WXi04jmeW&sz=w800" alt="Strategic" class="proj-thumb">
       <div class="proj-body">
@@ -301,8 +269,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
         </div>
       </div>
     </div>
-
-    <!-- HEALTH MAG -->
     <div class="proj-card">
       <img src="https://drive.google.com/thumbnail?id=184xcwK975bHf6iCgyRjgMUm6L-Wppj2H&sz=w800" alt="Health" class="proj-thumb">
       <div class="proj-body">
@@ -317,12 +283,10 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
         </div>
       </div>
     </div>
-
   </div>
 </div>
 </section>
 
-<!-- VIDEOS -->
 <section id="videos">
   <div class="sec-header">
     <div class="divider"></div>
@@ -349,7 +313,6 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="bg-alt" style="max-width:100%;padding:60px 24px;">
 <div style="max-width:900px;margin:0 auto;">
   <div class="sec-header">
@@ -386,7 +349,7 @@ function toggleLang(){
     : "Looking for a professional web designer & multimedia specialist? Get in touch and let's start your project.";
   document.getElementById('footerTxt').textContent = ar
     ? '© 2025 مشاعل سعد القحطاني — جميع الحقوق محفوظة'
-    : '© 2025 Mishaael Saad Al-Qahtani — All Rights Reserved';
+    : '© 2025 Mashael Saad Al-Qahtani — All Rights Reserved';
   document.querySelectorAll('[data-ar]').forEach(el => {
     el.textContent = ar ? el.getAttribute('data-ar') : el.getAttribute('data-en');
   });
