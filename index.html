@@ -85,6 +85,15 @@ section{padding:60px 24px;max-width:900px;margin:0 auto;}
 .video-card video{width:100%;display:block;max-height:220px;background:#000;}
 .video-card .proj-body{padding:14px;}
 
+/* MOTION CLIP (click to play) */
+.clip{position:relative;aspect-ratio:3/2;background:linear-gradient(135deg,#E6E0FA,#FFE5CB);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
+.clip:focus-visible{outline:3px solid #534AB7;outline-offset:-3px;}
+.clip .play{width:64px;height:64px;border-radius:50%;background:#F2705E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;transition:transform 0.2s;}
+.clip:hover .play{transform:scale(1.08);}
+.clip .ct{font-size:clamp(16px,3vw,24px);font-weight:700;color:#2B2A4C;text-align:center;padding:0 16px;line-height:1.6;}
+.clip iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+@media (max-width:760px){.clip{aspect-ratio:5/8;}}
+
 /* KALDI special */
 .kaldi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px;}
 .kaldi-grid img{width:100%;height:150px;object-fit:cover;border-radius:10px;border:1px solid #e2e6ea;}
@@ -328,9 +337,24 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   <div class="sec-header">
     <div class="divider"></div>
     <h2 class="sec-title" data-ar="فيديوهاتي" data-en="My Videos">فيديوهاتي</h2>
-    <p class="sec-sub" data-ar="محتوى تعليمي طبي صممته" data-en="Educational medical content I designed">محتوى تعليمي طبي صممته</p>
+    <p class="sec-sub" data-ar="فيديوهات وموشن صممتها" data-en="Videos and motion I designed">فيديوهات وموشن صممتها</p>
   </div>
   <div class="video-grid">
+
+    <!-- MOTION (click to play) -->
+    <div class="video-card" style="grid-column:1/-1;">
+      <div class="clip" id="clip" role="button" tabindex="0" aria-label="شغّلي الموشن">
+        <div class="ct" data-ar="كيف يشوف المصمم الأشياء؟" data-en="How does a designer see things?">كيف يشوف المصمم الأشياء؟</div>
+        <div class="play">▶</div>
+      </div>
+      <div class="proj-body">
+        <h3 data-ar="موشن: كيف يشوف المصمم الأشياء؟" data-en="Motion: How a Designer Sees Things">موشن: كيف يشوف المصمم الأشياء؟</h3>
+        <p data-ar="موشن جرافيك يوضح كيف يغيّر التصميم نظرتنا للأشياء، بأمثلة من التغليف وقوائم الطعام والبطاقات واللوحات والواجهات. اضغطي للتشغيل ثم «ابدأ»." data-en="Motion graphic showing how design changes the way we see things, with examples from packaging, menus, cards, signage and interfaces. Click to play, then press Start.">موشن جرافيك يوضح كيف يغيّر التصميم نظرتنا للأشياء، بأمثلة من التغليف وقوائم الطعام والبطاقات واللوحات والواجهات. اضغطي للتشغيل ثم «ابدأ».</p>
+        <span class="tag teal" data-ar="موشن جرافيك" data-en="Motion Graphics">موشن جرافيك</span>
+        <span class="tag">HTML & CSS</span>
+      </div>
+    </div>
+
     <div class="video-card">
       <iframe width="100%" height="220" src="https://www.youtube.com/embed/ej-8AgfNJXA" frameborder="0" allowfullscreen style="display:block;"></iframe>
       <div class="proj-body">
@@ -396,6 +420,19 @@ function toggleLang(){
 function goto(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
+
+/* Motion: click to play */
+(function(){
+  var c=document.getElementById('clip');
+  function playClip(){
+    c.innerHTML='<iframe src="designer-eye.html" allow="autoplay" title="Motion: How a designer sees things"></iframe>';
+    c.style.cursor='default';
+    c.removeAttribute('role');c.removeAttribute('tabindex');
+    c.onclick=null;c.onkeydown=null;
+  }
+  c.onclick=playClip;
+  c.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();playClip();}};
+})();
 </script>
 </body>
 </html>
