@@ -85,14 +85,19 @@ section{padding:60px 24px;max-width:900px;margin:0 auto;}
 .video-card video{width:100%;display:block;max-height:220px;background:#000;}
 .video-card .proj-body{padding:14px;}
 
-/* MOTION CLIP (click to play) */
-.clip{position:relative;aspect-ratio:3/2;background:linear-gradient(135deg,#E6E0FA,#FFE5CB);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;}
+/* MOTION CARD (opens in a pop-up) */
+.clip{position:relative;height:220px;background:linear-gradient(135deg,#E6E0FA,#FFE5CB);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;}
 .clip:focus-visible{outline:3px solid #534AB7;outline-offset:-3px;}
-.clip .play{width:64px;height:64px;border-radius:50%;background:#F2705E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;transition:transform 0.2s;}
-.clip:hover .play{transform:scale(1.08);}
-.clip .ct{font-size:clamp(16px,3vw,24px);font-weight:700;color:#2B2A4C;text-align:center;padding:0 16px;line-height:1.6;}
-.clip iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-@media (max-width:760px){.clip{aspect-ratio:5/8;}}
+.clip .play{width:54px;height:54px;border-radius:50%;background:#F2705E;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;transition:transform 0.2s;}
+.clip:hover .play{transform:scale(1.1);}
+.clip .ct{font-size:17px;font-weight:700;color:#2B2A4C;text-align:center;padding:0 14px;line-height:1.6;}
+.modal{position:fixed;inset:0;background:rgba(26,26,46,.72);display:none;align-items:center;justify-content:center;z-index:500;padding:16px;}
+.modal.open{display:flex;}
+.modal-box{position:relative;width:min(100%,900px,calc((100vh - 32px)*1.5));aspect-ratio:3/2;background:#fff;border-radius:14px;overflow:hidden;}
+.modal-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.modal-close{position:fixed;top:12px;right:12px;width:42px;height:42px;border-radius:50%;border:0;background:#fff;color:#1a1a2e;font-size:22px;cursor:pointer;z-index:501;line-height:1;}
+.modal-close:focus-visible{outline:3px solid #534AB7;outline-offset:2px;}
+@media (max-width:760px){.modal-box{width:min(100%,calc((100vh - 32px)*.625));aspect-ratio:5/8;}}
 
 /* KALDI special */
 .kaldi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px;}
@@ -341,17 +346,16 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   </div>
   <div class="video-grid">
 
-    <!-- MOTION (click to play) -->
-    <div class="video-card" style="grid-column:1/-1;">
+    <!-- MOTION (opens in a pop-up) -->
+    <div class="video-card">
       <div class="clip" id="clip" role="button" tabindex="0" aria-label="شغّلي الموشن">
         <div class="ct" data-ar="كيف يشوف المصمم الأشياء؟" data-en="How does a designer see things?">كيف يشوف المصمم الأشياء؟</div>
         <div class="play">▶</div>
       </div>
       <div class="proj-body">
-        <h3 data-ar="موشن: كيف يشوف المصمم الأشياء؟" data-en="Motion: How a Designer Sees Things">موشن: كيف يشوف المصمم الأشياء؟</h3>
-        <p data-ar="موشن جرافيك يوضح كيف يغيّر التصميم نظرتنا للأشياء، بأمثلة من التغليف وقوائم الطعام والبطاقات واللوحات والواجهات. اضغطي للتشغيل ثم «ابدأ»." data-en="Motion graphic showing how design changes the way we see things, with examples from packaging, menus, cards, signage and interfaces. Click to play, then press Start.">موشن جرافيك يوضح كيف يغيّر التصميم نظرتنا للأشياء، بأمثلة من التغليف وقوائم الطعام والبطاقات واللوحات والواجهات. اضغطي للتشغيل ثم «ابدأ».</p>
+        <h3 data-ar="كيف يشوف المصمم الأشياء؟" data-en="How a Designer Sees Things">كيف يشوف المصمم الأشياء؟</h3>
+        <p data-ar="موشن جرافيك عن كيف يغيّر التصميم نظرتنا للأشياء. اضغطي للتشغيل." data-en="Motion graphic about how design changes the way we see things. Click to play.">موشن جرافيك عن كيف يغيّر التصميم نظرتنا للأشياء. اضغطي للتشغيل.</p>
         <span class="tag teal" data-ar="موشن جرافيك" data-en="Motion Graphics">موشن جرافيك</span>
-        <span class="tag">HTML & CSS</span>
       </div>
     </div>
 
@@ -396,6 +400,11 @@ footer{background:#fff;border-top:1px solid #e2e6ea;text-align:center;padding:18
   <span id="footerTxt">© 2026 مشاعل سعد القحطاني — جميع الحقوق محفوظة</span>
 </footer>
 
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="الموشن">
+  <button class="modal-close" id="mclose" aria-label="إغلاق">✕</button>
+  <div class="modal-box" id="mbox"></div>
+</div>
+
 <script>
 let ar = true;
 function toggleLang(){
@@ -421,17 +430,16 @@ function goto(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
-/* Motion: click to play */
+/* Motion: opens in a pop-up */
 (function(){
-  var c=document.getElementById('clip');
-  function playClip(){
-    c.innerHTML='<iframe src="designer-eye.html" allow="autoplay" title="Motion: How a designer sees things"></iframe>';
-    c.style.cursor='default';
-    c.removeAttribute('role');c.removeAttribute('tabindex');
-    c.onclick=null;c.onkeydown=null;
-  }
-  c.onclick=playClip;
-  c.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();playClip();}};
+  var c=document.getElementById('clip'),m=document.getElementById('modal'),box=document.getElementById('mbox');
+  function openM(){box.innerHTML='<iframe src="designer-eye.html" allow="autoplay" title="Motion"></iframe>';m.classList.add('open');document.getElementById('mclose').focus();}
+  function closeM(){m.classList.remove('open');box.innerHTML='';c.focus();}
+  c.onclick=openM;
+  c.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openM();}};
+  document.getElementById('mclose').onclick=closeM;
+  m.onclick=function(e){if(e.target===m)closeM();};
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))closeM();});
 })();
 </script>
 </body>
