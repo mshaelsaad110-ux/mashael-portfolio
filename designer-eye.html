@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كيف يشوف المصمم الأشياء؟</title>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Aref+Ruqaa:wght@400;700&family=Lalezar&family=Tajawal:wght@300;500;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2B2A4C;--soft:#5E5D86;--coral:#F2705E;--teal:#2FA89A;--indigo:#5B5BD6;--sun:#F5B83D;--pink:#EE8FB2;--bg:#EEEAFB;--fg:#2B2A4C;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1E1D33;--fg:#EEEAFB}}
+:root[data-theme="dark"]{--bg:#1E1D33;--fg:#EEEAFB}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--fg);font-family:Tajawal,Tahoma,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:16px}
+.stage{position:relative;width:min(100%,1100px);aspect-ratio:16/9;background:#EEEAFB;color:var(--ink);border-radius:14px;overflow:hidden;container-type:inline-size;letter-spacing:0;word-spacing:0;font-kerning:normal;text-rendering:optimizeLegibility;--h:clamp(17px,3.2cqw,40px);--p:clamp(13px,1.85cqw,23px)}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.4cqw;padding:3cqw;text-align:center;opacity:0;transition:opacity .8s;pointer-events:none}
+.sc.on{opacity:1}
+#s1,#s7{background:#E6E0FA}#s2{background:#FFE5CB}#s3{background:#D7EFE3}#s4{background:#D5E8FA}#s5{background:#FFF0C4}#s6{background:#FADCE6}
+.rise{opacity:0;transform:translateY(2cqw);transition:opacity .7s,transform .7s}
+.on .rise{opacity:1;transform:none}
+.d1{transition-delay:.3s}.d2{transition-delay:.9s}.d3{transition-delay:1.5s}
+h1,h2,p{margin:0}
+h1,h2{font-family:'El Messiri',Tajawal,sans-serif;font-weight:700;line-height:1.65}
+h1{font-size:clamp(24px,6cqw,74px)}
+h2{font-size:var(--h)}
+.sub{font-size:clamp(14px,2.2cqw,26px);font-weight:500;color:var(--soft);line-height:1.7}
+.shapes{position:relative;width:26cqw;height:8cqw}
+.shapes i{position:absolute;top:0;width:8cqw;height:8cqw;transition:all 1.6s cubic-bezier(.7,0,.2,1);mix-blend-mode:multiply}
+.shapes .c{background:var(--coral);border-radius:50%;right:0;transform:translateX(9cqw)}
+.shapes .q{background:var(--teal);border-radius:1.2cqw;right:9cqw;transform:rotate(45deg)}
+.shapes .r{background:var(--sun);border-radius:4cqw 0 4cqw 0;right:18cqw;transform:translateX(-9cqw)}
+.on .shapes .c{transform:none}.on .shapes .q{transform:rotate(0);border-radius:50%;right:6cqw}.on .shapes .r{transform:none;border-radius:50%;right:12cqw}
+.ex{display:flex;align-items:center;justify-content:center;gap:5cqw;width:100%}
+.txt{flex:1;max-width:42cqw;text-align:right}
+.txt h2{margin-bottom:1.4cqw}
+.ln{font-size:var(--p);line-height:1.9;transition:opacity .8s;margin-bottom:.8cqw;font-weight:500}
+.ln b{display:inline-block;font-weight:800;font-size:.82em;line-height:1.6;padding:0 .8em;border-radius:1em;margin-inline-end:.6em}
+.ln.a b{background:var(--teal);color:#fff}.ln.b b{background:rgba(43,42,76,.14);color:var(--ink)}
+.ln.a{opacity:0}.p1 .ln.a{opacity:1}.p1 .ln.b{opacity:.45}
+.mock{flex:none;width:34cqw;height:34cqw;display:flex;align-items:center;justify-content:center}
+.mock>*{transform:scale(var(--z,1))}
+/* packaging */
+.pk{position:relative;width:19cqw;height:26cqw;background:#D9CDB6;color:#7a6f5a;border-radius:.5cqw;box-shadow:0 1cqw 2cqw rgba(43,42,76,.18);font-family:Tahoma,sans-serif;transition:all 1s;overflow:hidden}
+.pk::before{content:'';position:absolute;inset:0;background:linear-gradient(165deg,#F6958A,#F2705E);opacity:0;transition:opacity 1s}
+.pk>*{position:absolute;left:0;right:0;text-align:center;transition:all 1s}
+.pk .lid{top:0;height:0;background:var(--indigo)}
+.pk .arch{left:4cqw;right:4cqw;top:4.6cqw;height:10.4cqw;border-radius:5.5cqw 5.5cqw .6cqw .6cqw;background:#FFF3DA;opacity:0;transform:scale(.6);overflow:hidden}
+.pk .sunc{position:absolute;left:50%;top:2cqw;width:5cqw;height:5cqw;margin-left:-2.5cqw;border-radius:50%;background:var(--sun)}
+.pk .wv{position:absolute;bottom:0;left:0;right:0;height:4.4cqw;background:repeating-linear-gradient(180deg,var(--teal) 0 .7cqw,transparent .7cqw 1.4cqw)}
+.pk .t{top:11.8cqw;font-size:1.5cqw;line-height:1.5}
+.pk .sm{top:21.6cqw;font-family:'Aref Ruqaa',serif;font-size:1.7cqw;line-height:1.7;color:#fff;opacity:0}
+.p1 .pk{border-radius:2.2cqw 2.2cqw .6cqw .6cqw;color:#fff}
+.p1 .pk::before{opacity:1}
+.p1 .pk .lid{height:2.4cqw}
+.p1 .pk .arch{opacity:1;transform:none}
+.p1 .pk .t{top:15.2cqw;font-family:Lalezar,sans-serif;font-size:4.6cqw;line-height:1.5;font-weight:400}
+.p1 .pk .sm{opacity:1}
+/* menu */
+.mn{width:25cqw;padding:2cqw 2.2cqw;background:#e9eef2;color:#666;border-radius:.6cqw;font-family:Tahoma,sans-serif;box-shadow:0 1cqw 2cqw rgba(43,42,76,.12);transition:all 1s}
+.mn .mh{font-size:1.4cqw;margin-bottom:.4cqw;transition:all 1s}
+.mn .r{display:flex;align-items:center;gap:.5cqw;font-size:1.4cqw;padding:.35cqw .6cqw;border-radius:.6cqw;transition:all 1s}
+.mn .r i{margin-inline-start:auto;font-style:normal}
+.mn .sec{max-height:0;opacity:0;overflow:hidden;font-size:1.2cqw;color:var(--indigo);font-weight:800;transition:all 1s}
+.mn .tag{opacity:0;font-size:.95cqw;line-height:1.7;background:var(--sun);color:var(--ink);padding:0 .7cqw;border-radius:1cqw;transition:opacity 1s}
+.p1 .mn{font-family:Tajawal,sans-serif;background:#fff;color:var(--ink)}
+.p1 .mn .mh{font-family:'Aref Ruqaa',serif;font-size:3.4cqw;line-height:1.7;color:var(--teal);text-align:center;margin-bottom:.6cqw}
+.p1 .mn .r{font-size:1.5cqw;padding:.6cqw .8cqw;font-weight:500}
+.p1 .mn .r i{color:var(--coral);font-weight:800}
+.p1 .mn .sec{max-height:3.4cqw;opacity:1;margin-top:.8cqw;line-height:1.8}
+.p1 .mn .hl{background:#D7EFE3}.p1 .mn .tag{opacity:1}
+/* bank card */
+.bc{position:relative;width:30cqw;height:19cqw;border-radius:1cqw;background:#cfcfcf;color:#666;font-family:Tahoma,sans-serif;transition:all 1s}
+.bc::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,#8E9BF2,#F4A3C0);opacity:0;transition:opacity 1s}
+.bc>*{position:absolute;z-index:1;transition:all 1s}
+.bc .chip{left:1.5cqw;top:11cqw;width:2.2cqw;height:1.6cqw;background:#aaa;border-radius:.3cqw}
+.bc .num{direction:ltr;left:1.5cqw;bottom:3.6cqw;font-size:1.25cqw;display:flex}
+.bc .num span{transition:all 1s}
+.bc .nm{left:1.5cqw;bottom:1.4cqw;font-size:1cqw}
+.bc .lg{right:2cqw;top:2cqw;width:5cqw;height:3cqw;opacity:0}
+.bc .lg::before,.bc .lg::after{content:'';position:absolute;width:3cqw;height:3cqw;border-radius:50%}
+.bc .lg::before{background:var(--sun);right:0}.bc .lg::after{background:rgba(255,255,255,.7);right:1.8cqw}
+.p1 .bc{color:#fff;box-shadow:0 2cqw 4cqw rgba(91,91,214,.3)}
+.p1 .bc::before{opacity:1}
+.p1 .bc .chip{left:2.4cqw;top:5.4cqw;width:4.2cqw;height:3.2cqw;background:#FFE1A0;border-radius:.7cqw}
+.p1 .bc .num{left:2.4cqw;bottom:5cqw;font-size:2cqw;font-weight:500}
+.p1 .bc .num span+span{margin-left:1.5cqw}
+.p1 .bc .nm{left:2.4cqw;bottom:2.2cqw;font-size:1.25cqw}
+.p1 .bc .lg{opacity:1}
+/* sign */
+.sg{width:27cqw;padding:1.6cqw;background:#aab2b9;border-radius:.6cqw;font-family:Tahoma,sans-serif;color:#5a646d;box-shadow:0 1cqw 2cqw rgba(43,42,76,.12);transition:all 1s}
+.sg .sr{display:flex;align-items:center;gap:1cqw;height:4cqw;font-size:1.2cqw;transition:all 1s}
+.sg .ic{width:1cqw;height:1cqw;border-radius:50%;background:transparent;color:transparent;display:flex;align-items:center;justify-content:center;font-size:2.4cqw;line-height:1;font-weight:800;transition:all 1s;flex:none}
+.p1 .sg{background:#fff;color:var(--ink);font-family:'El Messiri',sans-serif}
+.p1 .sg .sr{height:7cqw;font-size:2.8cqw;font-weight:700;line-height:1.6}
+.p1 .sg .ic{width:5cqw;height:5cqw;color:#fff}
+.p1 .sg .i1{background:var(--teal)}.p1 .sg .i2{background:var(--coral)}.p1 .sg .i3{background:var(--sun);color:var(--ink)}
+/* app */
+.ap{width:16cqw;height:30cqw;border-radius:2cqw;background:#e9eef2;padding:2cqw 1.4cqw;display:flex;flex-direction:column;gap:.4cqw;font-family:Tahoma,sans-serif;box-shadow:0 1cqw 2cqw rgba(43,42,76,.15);transition:all 1s}
+.ap .at{font-size:1cqw;color:#777;transition:all 1s}
+.ap .f{height:2cqw;background:#cfd6dc;border-radius:.2cqw;font-size:.9cqw;color:#777;padding:.3cqw .5cqw;transition:all 1s;overflow:hidden}
+.ap .bt{height:1.6cqw;width:5cqw;background:#bbb;border-radius:.2cqw;font-size:.8cqw;color:#777;text-align:center;padding-top:.3cqw;transition:all 1s}
+.p1 .ap{background:#fff;gap:1.2cqw;justify-content:center;font-family:Tajawal,sans-serif}
+.p1 .ap .at{font-family:'El Messiri',sans-serif;font-size:2.4cqw;line-height:1.6;color:var(--ink);margin-bottom:1cqw}
+.p1 .ap .f{height:4cqw;background:#fff;border:.15cqw solid #C9C3F0;border-radius:1.2cqw;font-size:1.2cqw;padding:1.1cqw 1.2cqw;line-height:1.5}
+.p1 .ap .f.x{height:0;opacity:0;padding:0;border-width:0;margin:-.6cqw 0}
+.p1 .ap .bt{width:100%;height:4cqw;background:var(--teal);color:#fff;border-radius:2cqw;font-size:1.5cqw;font-weight:800;padding-top:1cqw;line-height:1.6}
+/* closing */
+.more{display:flex;gap:1.2cqw;flex-wrap:wrap;justify-content:center;max-width:60cqw}
+.more span{font-size:var(--p);font-weight:800;padding:.4cqw 1.7cqw;border-radius:3cqw;color:var(--ink);line-height:1.7}
+.more span:nth-child(1){background:#F8CFDB}.more span:nth-child(2){background:#FFE1A0}.more span:nth-child(3){background:#BFE8D8}.more span:nth-child(4){background:#BFDDF7}.more span:nth-child(5){background:#FFD0B8}.more span:nth-child(6){background:#D0C9F5}
+/* start overlay */
+.start{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4cqw;background:rgba(238,234,251,.82);backdrop-filter:blur(6px);transition:opacity .5s}
+.start.off{opacity:0;pointer-events:none}
+.start button{width:auto;height:auto;border-radius:6cqw;background:var(--coral);color:#fff;font-weight:800;font-size:clamp(16px,2.6cqw,30px);padding:.7cqw 3.4cqw;line-height:1.7}
+.start span{font-size:clamp(12px,1.6cqw,18px);color:var(--soft);font-weight:500}
+/* controls */
+.ctl{width:min(100%,1100px);display:flex;align-items:center;gap:12px}
+.ctl button{font:inherit;background:var(--teal);color:#fff;border:0;border-radius:50%;width:42px;height:42px;font-size:17px;cursor:pointer;flex:none}
+button:focus-visible,.bar:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+.bar{flex:1;height:8px;background:rgba(94,93,134,.25);border-radius:8px;cursor:pointer;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--coral)}
+@media (max-width:700px){
+ .stage{aspect-ratio:4/5;--h:clamp(17px,5.4cqw,30px);--p:clamp(13px,3.7cqw,18px)}
+ .ex{flex-direction:column;gap:2cqw}.txt{max-width:92%;text-align:center}
+ .mock{--z:1.5;height:48cqw;width:60cqw}.more{max-width:90%}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important;transition-delay:0s!important}}
+</style>
+</head>
+<body>
+<div class="stage">
+
+<section class="sc" id="s1">
+  <div class="shapes rise"><i class="c"></i><i class="q"></i><i class="r"></i></div>
+  <h1 class="rise d1">كيف يشوف المصمم الأشياء؟</h1>
+  <p class="sub rise d2">نفس الشيء، لكن بنظرتين مختلفتين</p>
+</section>
+
+<section class="sc" id="s2"><div class="ex">
+  <div class="txt rise"><h2>تغليف المنتجات: من مجرد غلاف إلى هوية</h2>
+    <p class="ln b"><b>قبل</b>علبة تؤدي وظيفة حمل المنتج فقط.</p>
+    <p class="ln a"><b>بعد</b>ألوان وخطوط وشكل مميز تتعرف به على المنتج وتحس بشخصيته حتى قبل ما تفتحه.</p></div>
+  <div class="mock rise d1"><div class="pk"><div class="lid"></div><div class="arch"><div class="sunc"></div><div class="wv"></div></div><div class="t">قهوة</div><div class="sm">تحميص على مهل</div></div></div>
+</div></section>
+
+<section class="sc" id="s3"><div class="ex">
+  <div class="txt rise"><h2>قوائم الطعام: من التشتت إلى سهولة الاختيار</h2>
+    <p class="ln b"><b>قبل</b>أصناف كثيرة مكتوبة بنفس الشكل، والعين تضيع بينها.</p>
+    <p class="ln a"><b>بعد</b>ترتيب بصري ذكي وعناوين واضحة ومساحات تساعدك تكتشف خياراتك بسهولة.</p></div>
+  <div class="mock rise d1"><div class="mn"><div class="mh">القائمة</div>
+    <div class="sec">المشروبات</div>
+    <div class="r">شاي كرك<i>٥</i></div><div class="r hl">قهوة عربية<span class="tag">الأكثر طلباً</span><i>٨</i></div><div class="r">لاتيه<i>١٤</i></div>
+    <div class="sec">الحلويات</div>
+    <div class="r">كرواسون<i>١٢</i></div><div class="r">تشيز كيك<i>١٨</i></div></div></div>
+</div></section>
+
+<section class="sc" id="s4"><div class="ex">
+  <div class="txt rise"><h2>البطاقات البنكية: من أداة دفع إلى هوية</h2>
+    <p class="ln b"><b>قبل</b>بطاقة تؤدي وظيفة الدفع.</p>
+    <p class="ln a"><b>بعد</b>هوية بصرية مدروسة وترتيب واضح للعناصر، مع مراعاة الأمان وسهولة الاستخدام.</p></div>
+  <div class="mock rise d1"><div class="bc"><div class="chip"></div><div class="lg"></div>
+    <div class="num"><span>1234</span><span>5678</span><span>9012</span><span>3456</span></div><div class="nm">AHMAD ALI</div></div></div>
+</div></section>
+
+<section class="sc" id="s5"><div class="ex">
+  <div class="txt rise"><h2>اللوحات الإرشادية: من الحيرة إلى اتجاه واضح</h2>
+    <p class="ln b"><b>قبل</b>كلام بحجم واحد، وتوقف عشان تقرأ وتفهم.</p>
+    <p class="ln a"><b>بعد</b>ألوان ورموز وأحجام تدلك بنظرة واحدة وأنت ماشي.</p></div>
+  <div class="mock rise d1"><div class="sg">
+    <div class="sr"><div class="ic i1">←</div>المخرج</div><div class="sr"><div class="ic i2">↑</div>دورات المياه</div><div class="sr"><div class="ic i3">↓</div>المصاعد</div></div></div>
+</div></section>
+
+<section class="sc" id="s6"><div class="ex">
+  <div class="txt rise"><h2>واجهات التطبيقات: من الزحمة إلى خطوة واحدة</h2>
+    <p class="ln b"><b>قبل</b>حقول كثيرة وزر صغير، وما تدري من وين تبدأ.</p>
+    <p class="ln a"><b>بعد</b>خطوة واضحة ومساحات مريحة وزر تعرفه من أول نظرة.</p></div>
+  <div class="mock rise d1"><div class="ap"><div class="at">تسجيل</div><div class="f">الاسم</div><div class="f">الجوال</div><div class="f x">البريد</div><div class="f x">العنوان</div><div class="bt">التالي</div></div></div>
+</div></section>
+
+<section class="sc" id="s7">
+  <h2 class="rise" style="font-size:clamp(20px,4.8cqw,60px)">التصميم ما يغيّر الشيء،<br>يغيّر طريقة رؤيتنا له.</h2>
+  <p class="sub rise d2">والأمثلة حولنا أكثر بكثير</p>
+  <div class="more rise d3"><span>الشعارات</span><span>الملصقات</span><span>المواقع</span><span>أغلفة الكتب</span><span>الأزياء</span><span>المباني</span></div>
+</section>
+
+<div class="start" id="start"><button id="go" aria-label="ابدأ الموشن">▶ ابدأ</button><span>يشتغل بصوت، تقدر تكتمه من الزر تحت</span></div>
+</div>
+<div class="ctl">
+  <button id="pp" aria-label="تشغيل">▶</button>
+  <div class="bar" id="bar" tabindex="0" role="slider" aria-label="شريط التقدم"><i id="fill"></i></div>
+  <button id="mu" aria-label="كتم الصوت" style="background:var(--indigo)">🔊</button>
+  <button id="rp" aria-label="إعادة" style="background:var(--coral)">↺</button>
+</div>
+
+<script>
+var D=[4500,8500,7500,7500,7500,7500,6500],PH=[[],[3200],[3200],[3200],[3200],[3200],[]];
+var T=D.reduce(function(a,b){return a+b},0),t=0,playing=false,last=null,pi=-1,pp1=false;
+var sc=[].slice.call(document.querySelectorAll('.sc')),fill=document.getElementById('fill'),pp=document.getElementById('pp'),st=document.getElementById('start'),mu=document.getElementById('mu');
+/* sound (WebAudio, no files) */
+var AC=null,M=null,muted=false,nextN=0,stp=0,SEQ=[261.63,329.63,392,329.63,440,392,329.63,293.66];
+function initAudio(){
+  if(AC){AC.resume();return}
+  var C=window.AudioContext||window.webkitAudioContext;if(!C)return;
+  try{AC=new C();M=AC.createGain();M.gain.value=muted?0:.6;M.connect(AC.destination);nextN=AC.currentTime+.2;
+  [130.81,164.81,196,246.94].forEach(function(f,i){var o=AC.createOscillator(),g=AC.createGain(),l=AC.createOscillator(),lg=AC.createGain();
+   o.frequency.value=f;o.detune.value=i%2?6:-6;g.gain.value=.03;l.frequency.value=.08+i*.03;lg.gain.value=.014;
+   l.connect(lg);lg.connect(g.gain);o.connect(g);g.connect(M);o.start();l.start()})}catch(e){AC=null}
+}
+function note(f,w,d,v,ty){var o=AC.createOscillator(),g=AC.createGain();o.type=ty||'triangle';o.frequency.value=f;
+  g.gain.setValueAtTime(0,w);g.gain.linearRampToValueAtTime(v,w+.01);g.gain.exponentialRampToValueAtTime(.0001,w+d);
+  o.connect(g);g.connect(M);o.start(w);o.stop(w+d+.05)}
+function whoosh(){var n=AC.sampleRate*.6,b=AC.createBuffer(1,n,AC.sampleRate),d=b.getChannelData(0);
+  for(var i=0;i<n;i++)d[i]=(Math.random()*2-1)*(1-i/n);
+  var s=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain(),w=AC.currentTime;
+  s.buffer=b;f.type='bandpass';f.frequency.setValueAtTime(300,w);f.frequency.exponentialRampToValueAtTime(2400,w+.5);
+  g.gain.value=.12;s.connect(f);f.connect(g);g.connect(M);s.start()}
+function sparkle(){[523.25,659.25,783.99,1046.5].forEach(function(f,i){note(f,AC.currentTime+i*.1,1.3,.14,'sine')})}
+function chord(){[261.63,329.63,392,523.25].forEach(function(f,i){note(f,AC.currentTime+i*.12,2.6,.1,'sine')})}
+function music(){if(!AC||!playing)return;while(nextN<AC.currentTime+.25){note(SEQ[stp%8]*(stp%16>=8?1.122:1),nextN,1.4,.06);nextN+=.9;stp++}}
+/* timeline */
+function render(){
+  var acc=0,idx=0;
+  for(var i=0;i<D.length;i++){if(t>=acc+D[i]&&i<D.length-1){acc+=D[i];idx=i+1}else{idx=i;break}}
+  var local=t-acc,p1=PH[idx][0]!==undefined&&local>=PH[idx][0];
+  sc.forEach(function(s,i){s.classList.toggle('on',i===idx);s.classList.toggle('p1',i===idx&&p1)});
+  if(AC&&playing&&!muted){
+    if(idx!==pi){if(idx===6)chord();else whoosh()}
+    else if(p1&&!pp1)sparkle();
+  }
+  pi=idx;pp1=p1;fill.style.width=(t/T*100)+'%';
+}
+function setBtn(){pp.textContent=playing?'❚❚':'▶';pp.setAttribute('aria-label',playing?'إيقاف مؤقت':'تشغيل')}
+function play(){initAudio();if(t>=T)t=0;playing=true;st.classList.add('off');if(AC)AC.resume();setBtn()}
+function pause(){playing=false;if(AC)AC.suspend();setBtn()}
+function loop(ts){
+  if(last!==null&&playing){t+=ts-last;if(t>=T){t=T;pause()}}
+  last=ts;render();music();requestAnimationFrame(loop)
+}
+document.getElementById('go').onclick=function(){t=0;play()};
+pp.onclick=function(){playing?pause():play()};
+document.getElementById('rp').onclick=function(){t=0;pi=-1;play()};
+mu.onclick=function(){muted=!muted;if(M)M.gain.value=muted?0:.6;mu.textContent=muted?'🔇':'🔊';mu.setAttribute('aria-label',muted?'تشغيل الصوت':'كتم الصوت')};
+var bar=document.getElementById('bar');
+bar.onclick=function(e){var r=bar.getBoundingClientRect();t=Math.min(T,Math.max(0,(r.right-e.clientX)/r.width*T))};
+bar.onkeydown=function(e){if(e.key==='ArrowLeft')t=Math.min(T,t+2000);if(e.key==='ArrowRight')t=Math.max(0,t-2000)};
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
